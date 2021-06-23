@@ -6,8 +6,11 @@ import Col from 'react-bootstrap/Col';
 
 import { shorten } from '../services/url';
 
+const SERVER_ENDPOINT = process.env.NODE_ENV === 'production' ? "https://govtech-url-shortener-app.herokuapp.com/" : "http://localhost:5000";
+
 const ShortenForm = () => {
   const [link, setLink] = useState('');
+  const [code, setCode] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
@@ -19,6 +22,7 @@ const ShortenForm = () => {
       if (response.data) {
         console.log(response.data);
         setLink(response.data.short);
+        setCode(response.data.urlCode);
         setError('');
       }
     } catch (e) {
@@ -52,7 +56,9 @@ const ShortenForm = () => {
         <Col md="6">
         {link &&
           <div class="text-center text-info">
-            <a href={link} target="_blank">{link}</a>
+            <a href={`${SERVER_ENDPOINT}/${code}`} rel="noreferrer" target="_blank">
+              {SERVER_ENDPOINT}/{code}
+            </a>
           </div>
         }
         {error &&

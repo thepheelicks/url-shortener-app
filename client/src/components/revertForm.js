@@ -52,7 +52,7 @@ const RevertForm = () => {
         <Col md="8">
         {link &&
           <div class="text-center text-info">
-            <a href={link} target="_blank">{link}</a>
+            <a href={link} target="_blank" rel="noreferrer">{link}</a>
           </div>
         }
         {error &&
