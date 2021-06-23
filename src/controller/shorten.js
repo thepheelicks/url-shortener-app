@@ -1,4 +1,4 @@
-const shortId = require('shortId');
+const shortId = require('shortid');
 const validator = require('validator');
 
 const config = require('../config/default');
