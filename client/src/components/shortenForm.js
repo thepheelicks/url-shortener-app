@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 import { shorten } from '../services/url';
 
-const SERVER_ENDPOINT = process.env.NODE_ENV === 'production' ? "https://govtech-url-shortener-app.herokuapp.com/" : "http://localhost:5000";
+const SERVER_ENDPOINT = process.env.NODE_ENV === 'production' ? "https://govtech-url-shortener-app.herokuapp.com" : "http://localhost:5000";
 
 const ShortenForm = () => {
   const [link, setLink] = useState('');
